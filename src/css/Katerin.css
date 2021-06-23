@@ -1,0 +1,35 @@
+.Menu{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+.Menu ul{
+    display: flex;
+    width: min-content;
+    height: min-content;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline-start: 0;
+}
+
+.Menu ul li{
+    background-color: #A9ECFF;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    width: auto;
+    padding: 10px 15px;
+    margin: 10px;
+    height: 90%;
+    border-radius: 20px;
+    border: 1px solid black;
+    transition: border 2s, background-color 2s, box-shadow 2s;
+}
+
+.Menu ul li:hover{
+    background-color: rgb(194, 194, 245);
+    border: 1px solid blue;
+    box-shadow: 4px 4px 14px 0px rgb(0, 0, 0, 0.41);
+}
