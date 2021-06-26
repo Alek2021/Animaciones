@@ -2,6 +2,7 @@
     display: flex;
     width: 90%;
     justify-content: center;
+    text-align: center;
 }
 .Menu ul{
     display: flex;
@@ -23,7 +24,6 @@
     padding: 10px 15px;
     margin: 10px;
     height: 90%;
-    border-radius: 20px;
     border: 1px solid black;
     transition: border 2s, background-color 2s, box-shadow 2s;
 }
@@ -34,39 +34,28 @@
     box-shadow: 4px 4px 14px 0px rgba(214, 18, 240, 0.41);
 }
 /* Section giros */
-
-#Giros{
-    display: flex;
-    width: 99%;
-    height: auto;
-    justify-content: space-around;
-    border:  solid 2px blueviolet;
-}
-
-.card{
-    display: flex;
-    width: 200px;
-    height: 200px;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-    align-self: center;
-    text-align: center;
-    background-color: rgb(194, 194, 245);
-    margin: 20px;
-}
 .card2{
     display: flex;
     width: 200px;
     height: 200px;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     text-align: center;
     background-color: rgb(194, 194, 245);
     margin: 20px;
+    transition: transform 3s;
 }
 
-.transiciones{
+h1{
+    justify-content: center;
+    text-align: center;
+}
+.fondo{
+    background-color: rgb(198, 186, 228);
+}
+
+.transiciones, .giros{
+    overflow-x: hidden;
     display: grid;
     width: 99%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -77,12 +66,140 @@
 }
 
 @media screen and (min-width:421px) and (max-width:800px){
-    .transiciones{
+    .transiciones, .giros{
         grid-template-columns: 1fr 1fr;
     }   
 }
 @media screen and (min-width:375px) and (max-width:420px){
-    .transiciones{
+    .transiciones, .giros{
         grid-template-columns: 1fr;
     }
+}
+/*Giros*/
+.Giro_completo:hover{
+    transform: rotate(360deg);
+}
+.Giro_completo_right:hover{
+    transform: rotate(360deg);
+}
+.Giro_completo_left:hover{
+    transform: rotate(-360deg);
+}
+.Medio_giro:hover{
+    transform: rotate(180deg);
+}
+.Medio_giro_right:hover{
+    transform: rotate(180deg);
+}
+.Medio_giro_left:hover{
+    transform: rotate(-180deg);
+}
+.Giro_infinito{
+    animation-name: sol;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+}
+
+@keyframes sol {
+    0%{
+        left: 50%;
+    }
+    50%{
+        left: 60%;
+    }
+}
+
+/*Derecha*/
+@keyframes llegadaDerecha {
+    0%{
+        opacity: 0;
+       transform: translateX(1000px); 
+    }
+    60%{
+        opacity: 0.8;
+        transform: translateX(-20px);
+    }
+    80%{
+        opacity: 0.9;
+       transform: translateX(15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+/*Izquierda*/
+@keyframes llegadaIzquierda {
+    0%{
+        opacity: 0;
+       transform: translateX(-50px); 
+    }
+    60%{
+        opacity: 0.8;
+        transform: translateX(20px);
+    }
+    80%{
+        opacity: 0.9;
+       transform: translateX(-15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-0px);
+    }
+}
+/*Arriba*/
+@keyframes llegadaArriba{
+    0%{
+        opacity: 0;
+       transform: translateY(-1000px); 
+    }
+    60%{
+        opacity: 0.8;
+        transform: translateY(-400px);
+    }
+    80%{
+        opacity: 0.9;
+       transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/*Abajo*/
+@keyframes llegadaAbajo {
+    0%{
+        opacity: 0;
+       transform: translateY(1000px); 
+    }
+    60%{
+        opacity: 0.8;
+        transform: translateY(500px);
+    }
+    80%{
+        opacity: 0.9;
+       transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-0px);
+    }
+}
+
+/*Trancisiones*/
+.slide_right{
+    animation-name: llegadaDerecha;
+    animation-duration: 3s;
+}
+.slide_left{
+    animation-name: llegadaIzquierda;
+    animation-duration: 3s;
+}
+.slide_above{
+    animation-name: llegadaArriba;
+    animation-duration: 3s;
+}
+.slide_under{
+    animation-name: llegadaAbajo;
+    animation-duration: 3s;
 }
